@@ -15,7 +15,6 @@
  ******************************************************************************/
 package pl.otros.logview.loader;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.otros.logview.api.BaseLoader;
@@ -25,6 +24,7 @@ import pl.otros.logview.api.importer.LogImporterUsingParser;
 import pl.otros.logview.api.parser.LogParser;
 import pl.otros.logview.importer.Log4jSerilizedLogImporter;
 import pl.otros.logview.importer.UtilLoggingXmlLogImporter;
+import pl.otros.logview.importer.bracketstyle.ApplicationLogImporter;
 import pl.otros.logview.importer.log4jxml.Log4jXmlLogImporter;
 import pl.otros.logview.importer.logback.LogbackSocketLogImporter;
 import pl.otros.logview.parser.JulSimpleFormatterParser;
@@ -56,6 +56,11 @@ public class LogImportersLoader {
     LogImporterUsingParser julImporter = new LogImporterUsingParser(julSimpleFormmaterParser);
     julImporter.init(p);
     list.add(julImporter);
+
+
+    ApplicationLogImporter applicationLogImporter = new ApplicationLogImporter();
+    applicationLogImporter.init(new Properties());
+    list.add(applicationLogImporter);
 
     Log4jXmlLogImporter log4jXmlLogImporter = new Log4jXmlLogImporter();
     log4jXmlLogImporter.init(new Properties());
