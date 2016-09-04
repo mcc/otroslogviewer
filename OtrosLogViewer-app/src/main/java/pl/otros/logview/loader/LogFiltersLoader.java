@@ -31,6 +31,7 @@ public class LogFiltersLoader {
     list.add(new TimeFilter());
     list.add(new MarkNoteFilter());
     list.add(new ThreadFilter());
+    list.add(new UserFilter());
     list.add(new ClassPackageFilter());
     list.add(new LoggerHierarchyFilter());
     list.add(new PropertyFilter());

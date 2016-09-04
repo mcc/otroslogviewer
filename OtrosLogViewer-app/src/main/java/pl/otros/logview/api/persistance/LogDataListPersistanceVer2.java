@@ -47,6 +47,9 @@ public class LogDataListPersistanceVer2 implements LogDataListPersistance {
   public static final String HEADER_MARKED = "MARKED";
   public static final String HEADER_MARKED_COLOR = "MARKED_COLOR";
 
+    public static final String HEADER_USER = "USER";
+    public static final String HEADER_SESSIONID = "SESSIONID";
+
   public static final String FIELD_SEPERATOR = "|";
   public static final String FIELD_SEPERATOR_TO_SPLIT = "\\|";
 
@@ -88,6 +91,8 @@ public class LogDataListPersistanceVer2 implements LogDataListPersistance {
     m.put(HEADER_CLASS, logData.getClazz());
     m.put(HEADER_LEVEL, logData.getLevel().toString());
     m.put(HEADER_LOGGER, logData.getLoggerName());
+      m.put(HEADER_SESSIONID, logData.getSessionId());
+      m.put(HEADER_USER, logData.getUser());
     m.put(HEADER_MESSAGE, logData.getMessage());
     m.put(HEADER_METHOD, logData.getMethod());
     m.put(HEADER_THREAD, logData.getThread());
@@ -133,6 +138,8 @@ public class LogDataListPersistanceVer2 implements LogDataListPersistance {
     m.add(HEADER_METHOD);
     m.add(HEADER_LEVEL);
     m.add(HEADER_LOGGER);
+      m.add(HEADER_USER);
+      m.add(HEADER_SESSIONID);
     m.add(HEADER_THREAD);
     m.add(HEADER_MDC);
     m.add(HEADER_NDC);

@@ -99,6 +99,10 @@ public final class LoggingEventFieldResolver {
    * empty string literal.
    */
   public static final String EMPTY_STRING = "";
+
+    public static final String USER_FIELD = "USER";
+    public static final String SESSIONID_FIELD = "SESSIONID";
+
   /**
    * LOGGER string literal.
    */
@@ -125,6 +129,8 @@ public final class LoggingEventFieldResolver {
     KEYWORD_LIST.add(PROP_FIELD);
     KEYWORD_LIST.add(MARK_FIELD);
     KEYWORD_LIST.add(NOTE_FIELD);
+      KEYWORD_LIST.add(USER_FIELD);
+      KEYWORD_LIST.add(SESSIONID_FIELD);
   }
 
   /**
@@ -230,6 +236,10 @@ public final class LoggingEventFieldResolver {
       }
     } else if (NOTE_FIELD.equals(upperField)) {
       return event.getNote().getNote();
+    } else if (USER_FIELD.equals(upperField)) {
+        return event.getUser();
+    } else if (SESSIONID_FIELD.equals(upperField)) {
+        return event.getSessionId();
     } else {
       if (CLASS_FIELD.equals(upperField)) {
         return ((event.getClazz() == null) ? EMPTY_STRING : event.getClazz());

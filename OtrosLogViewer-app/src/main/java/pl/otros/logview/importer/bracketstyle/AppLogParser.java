@@ -95,8 +95,10 @@ public class AppLogParser implements Closeable {
             logData.setClazz(arrs[4]);
             logData.setThread(arrs[5]);
             properties.put("userId", arrs[6]);
+            logData.setUser(arrs[6]);
             logData.setLoggerName(arrs[6]);
             properties.put("ecid", arrs[7]);
+            logData.setSessionId(arrs[7]);
             logData.setLine(arrs[7]);
             LOGGER.info("7=" + arrs[7]);
             if (arrs.length == 9) {

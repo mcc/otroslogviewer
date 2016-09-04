@@ -41,6 +41,8 @@ public class LogData implements Serializable {
   private String thread = "";
   private String loggerName = "";
   private String message = "";
+    private String user = "";
+    private String sessionId = "";
   private int id;
   private Map<String, String> properties;
   private Note note;
@@ -143,6 +145,22 @@ public class LogData implements Serializable {
   public void setId(int id) {
     this.id = id;
   }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
 
   @Override
   public boolean equals(Object o) {
@@ -250,13 +268,27 @@ public class LogData implements Serializable {
 
   @Override
   public String toString() {
-    final int maxLen = 10;
-    String builder = "LogData [date=" + date + ", level=" + level + ", messageId=" + messageId + ", clazz=" + clazz +
-      ", method=" + method + ", file=" + file + ", line=" + line + ", ndc=" + ndc + ", thread=" +
-      thread + ", loggerName=" + loggerName + ", message=" + message + ", id=" + id + ", properties=" +
-      (properties != null ? toString(properties.entrySet(), maxLen) : null) + ", note=" + note + ", marked=" + marked +
-      ", markerColors=" + markerColors + ", logSource=" + logSource + "]";
-    return builder;
+      return "LogData{" +
+              "date=" + date +
+              ", level=" + level +
+              ", messageId='" + messageId + '\'' +
+              ", clazz='" + clazz + '\'' +
+              ", method='" + method + '\'' +
+              ", file='" + file + '\'' +
+              ", line='" + line + '\'' +
+              ", ndc='" + ndc + '\'' +
+              ", thread='" + thread + '\'' +
+              ", loggerName='" + loggerName + '\'' +
+              ", message='" + message + '\'' +
+              ", user='" + user + '\'' +
+              ", sessionId='" + sessionId + '\'' +
+              ", id=" + id +
+              ", properties=" + properties +
+              ", note=" + note +
+              ", marked=" + marked +
+              ", markerColors=" + markerColors +
+              ", logSource='" + logSource + '\'' +
+              '}';
   }
 
   private String toString(Collection<?> collection, int maxLen) {

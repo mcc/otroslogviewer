@@ -80,6 +80,7 @@ public class LogViewPanel extends LogViewPanelI {
   private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
   //  private JScrollPane scrollPane;
   private FocusOnThisThreadAction focusOnThisThreadAction;
+  private FocusOnThisUserAction focusOnThisUserAction;
   private FocusOnEventsAfter focusOnEventsAfter;
   private FocusOnEventsBefore focusOnEventsBefore;
   private FocusOnSelectedClassesLikeAction focusOnSelectedClassesAction;
@@ -440,6 +441,9 @@ public class LogViewPanel extends LogViewPanelI {
         propertyFilter = (PropertyFilter) filter;
         propertyFilterPanel = filterPanel;
 
+      } else if (filter instanceof UserFilter) {
+        UserFilter userFilter = (UserFilter) filter;
+        focusOnThisUserAction = new FocusOnThisUserAction(userFilter, filterPanel.getEnableCheckBox(), otrosApplication);
       }
     }
     filtersLabel.add(logsMarkersPanel, "span, grow");
@@ -506,6 +510,7 @@ public class LogViewPanel extends LogViewPanelI {
     menu.add(labelQuickFilters);
     menu.add(new JSeparator());
     menu.add(focusOnThisThreadAction);
+    menu.add(focusOnThisUserAction);
     menu.add(focusOnEventsAfter);
     menu.add(focusOnEventsBefore);
     menu.add(focusOnSelectedClassesAction);

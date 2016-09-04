@@ -125,6 +125,12 @@ public class LogDataTableModel extends AbstractTableModel implements LogDataColl
       case THREAD:
         result = ld.getThread();
         break;
+      case USER:
+        result = ld.getUser();
+        break;
+      case SESSIONID:
+        result = ld.getSessionId();
+        break;
       case MARK:
         result = ld.getMarkerColors();
         break;

@@ -34,7 +34,9 @@ public enum TableColumns {
   NDC("NDC", 12), //
   PROPERTIES("Properties", 13), //
   LOGGER_NAME("Logger", 14), //
-  LOG_SOURCE("Source", 15);//
+    LOG_SOURCE("Source", 15),//
+    USER("User", 16),
+    SESSIONID("Session ID", 17);
 
   private static final HashMap<Integer, TableColumns> map = new HashMap<>();
 
@@ -53,8 +55,9 @@ public enum TableColumns {
     TableColumns.METHOD,//
     TableColumns.NOTE,//
     TableColumns.THREAD,//
-    TableColumns.TIME //
-
+          TableColumns.TIME, //
+          TableColumns.USER,
+          TableColumns.SESSIONID
   };
 
   public static final TableColumns[] ALL_WITHOUT_LOG_SOURCE = {TableColumns.CLASS,//
@@ -71,8 +74,9 @@ public enum TableColumns {
     TableColumns.LINE, //
     TableColumns.NDC, //
     TableColumns.PROPERTIES, //
-    TableColumns.LOGGER_NAME //
-
+          TableColumns.LOGGER_NAME, //
+          TableColumns.USER,
+          TableColumns.SESSIONID
   };
 
   private final String name;

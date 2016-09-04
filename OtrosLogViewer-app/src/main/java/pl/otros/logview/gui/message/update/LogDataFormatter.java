@@ -245,7 +245,7 @@ public class LogDataFormatter {
     if (otrosApplication.getConfiguration() != null) {
       //try to get chunks order and set default if not in config
       String chunksOrder = otrosApplication.getConfiguration().getString(ConfKeys.MESSAGE_FORMATTER_CHUNKS_ORDER,
-        "date;class;method;level;thread;file;NDC;logger;properties;message;marked;note");
+              "date;class;method;level;user;thread;file;NDC;logger;properties;message;marked;note;sessionid");
       String[] chunkOrderArr = chunksOrder.split(";");
       for (String currentChunkOrder : chunkOrderArr) {
         if (currentChunkOrder.contains("date")) {
@@ -299,6 +299,16 @@ public class LogDataFormatter {
           //12 note
           addNoteChunk();
         }
+          if (currentChunkOrder.contains("user")) {
+              //5 user
+              chunks.add(new TextChunkWithStyle("User: " + ld.getUser() + NEW_LINE, classMethodStyle));
+          }
+
+          if (currentChunkOrder.contains("sessionid")) {
+              //5 sessionid
+              chunks.add(new TextChunkWithStyle("Session Id: " + ld.getSessionId() + NEW_LINE, classMethodStyle));
+          }
+
       }
     }
     return chunks;
