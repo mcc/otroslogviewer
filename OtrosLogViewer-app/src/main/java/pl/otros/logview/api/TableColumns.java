@@ -66,17 +66,18 @@ public enum TableColumns {
     TableColumns.LEVEL, //
     TableColumns.MESSAGE, //
     TableColumns.CLASS, //
-    TableColumns.METHOD, //
-    TableColumns.THREAD, //
+          //TableColumns.METHOD, //
+
     TableColumns.MARK, //
     TableColumns.NOTE, //
-    TableColumns.FILE, //
+          //TableColumns.FILE, //
     TableColumns.LINE, //
-    TableColumns.NDC, //
+          //TableColumns.NDC, //
     TableColumns.PROPERTIES, //
-          TableColumns.LOGGER_NAME, //
+          //TableColumns.LOGGER_NAME, //
           TableColumns.USER,
-          TableColumns.SESSIONID
+          TableColumns.SESSIONID,
+          TableColumns.THREAD, //
   };
 
   private final String name;

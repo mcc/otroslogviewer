@@ -49,9 +49,11 @@ public class ApplicationLogImporter extends AbstractPluginableElement implements
         LOGGER.info("Start Import Log");
         try (AppLogParser appLogParser = new AppLogParser(in)) {
             LogData nextLog = appLogParser.nextLog();
+            if (nextLog != null) dataCollector.add(nextLog);
             while (nextLog != null) {
                 LOGGER.info("" + nextLog.getDate());
                 nextLog = appLogParser.nextLog();
+                nextLog.setFile(parsingContext.getLogSource());
                 if (nextLog != null) {
                     dataCollector.add(nextLog);
                 }

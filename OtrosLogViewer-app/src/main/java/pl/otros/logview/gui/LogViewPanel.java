@@ -116,8 +116,8 @@ public class LogViewPanel extends LogViewPanelI {
     messageFormattersContainer = allPluginable.getMessageFormatters();
     selectedMessageColorizersContainer = new PluginableElementsContainer<>();
     selectedMessageFormattersContainer = new PluginableElementsContainer<>();
-    messageColorizersContainer.getElements().forEach(selectedMessageColorizersContainer::addElement);
-    messageFormattersContainer.getElements().forEach(selectedMessageFormattersContainer::addElement);
+    //messageColorizersContainer.getElements().forEach(selectedMessageColorizersContainer::addElement); //Default not load the plugin
+    //messageFormattersContainer.getElements().forEach(selectedMessageFormattersContainer::addElement); //Default not load the plugin
     messageColorizersContainer.addListener(new SynchronizePluginableContainerListener<>(selectedMessageColorizersContainer));
     messageFormattersContainer.addListener(new SynchronizePluginableContainerListener<>(selectedMessageFormattersContainer));
 
